@@ -130,20 +130,20 @@ def text_from_dir(dir_path=None, clean=False):
 # input_folder = str(input("Please enter the folder path: "))
 # data_cleaning = bool(input("Please enter 'True' if you want to clean the data & 'False' otherwise: "))
 
-"""input_folder = '/content/drive/MyDrive/Colab_Notebooks1/Practice/SSC_GCA'
+input_folder = '/content/drive/MyDrive/Colab_Notebooks1/Practice/SSC_GCA'
 data_cleaning = True
 
 final_data = text_from_dir(input_folder, data_cleaning)
 
-Inspect the output
+"""Inspect the output"""
 
 len(final_data)
 
-Below is the list of keys with documents from the input folder (file names)
+"""Below is the list of keys with documents from the input folder (file names)"""
 
 keys = list(final_data)
 keys
-"""
+
 """
 *   The dictionary stores the file names and respective textual data. The values can be retrived using keys.
 *   e.g. final_data['Artemis_NASA.html']

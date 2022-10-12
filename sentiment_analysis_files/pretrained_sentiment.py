@@ -72,7 +72,8 @@ def sentiment_analysis(model_name, clean_dict, keys):
     return sentiment_dict
 
 # It creates a DataFrame from the Sentiment dict.
-def sentiments_to_df(sentiment_dict):
+# It creates a DataFrame from the Sentiment dict.
+def sentiments_to_df(sentiment_dict, clean_dict):
     temp = []
     keys = list(sentiment_dict)
     # Returns separate Dataframes for distinct file-wise sentiments and combines it into one at the end of the function
@@ -84,7 +85,15 @@ def sentiments_to_df(sentiment_dict):
         locals()["final_df_" +str(sentiments[0])] = locals()["final_df_" +str(sentiments[0])][["document_name", "sentiments", "score"]]
         temp.append(locals()["final_df_" +str(sentiments[0])])
         data = pd.concat(temp)
+
+    temp1 = []
+    for cnt, values in enumerate(clean_dict.items()):
+        temp1.append(values[1])
+    temp1 = sum(temp1,[])
+    data['sentences'] = temp1
+    data = data[["document_name", 'sentences', "sentiments", "score"]]
     data.reset_index(drop= "index" , inplace= True)
+         
     return data
 
 # It creates the plots for the sentiments DataFrame
@@ -103,7 +112,7 @@ def plot_sentiments(sentiments_df, keys):
     plt.tight_layout()
     
     warnings.filterwarnings("ignore")
-    return plt.show
+    return plt
 
 """### `get_sentiment()` function definition."""
 
@@ -112,7 +121,7 @@ def get_sentiment(data):
     model_name= "nlptown/bert-base-multilingual-uncased-sentiment"
     clean_dict, keys = preprocess_data(data)
     final_output = sentiment_analysis(model_name, clean_dict, keys)
-    sentiments_df = sentiments_to_df(final_output)
+    sentiments_df = sentiments_to_df(final_output, clean_dict)
     plots = plot_sentiments(sentiments_df, keys) 
     return sentiments_df, plots
 

@@ -18,7 +18,9 @@ The service desk agent fills in the template (all plain text inside the "Descrip
 
 Agent fills Summary (short text created by hand)
 
-Agent fills Affected Service: 
+Agent fills Affected Service:
+ 
+07/05/2022
 
 Affected asset: Related / similar to CIs.. but not 1 to 1 relationship. We could ask ODS about it.
 - team who does CIs now will probably do Asset list
@@ -28,8 +30,10 @@ More about templates:
 * Selecting the CUSTOMER identifies the company
 Between these two variables, it automatically selects a group to route it to.
 
-A wrongly selected template is the cause of ticket misassignment.
+A wrongly selected template is the cause of ticket misassignment. 
 
+August 1, 2022
+ 
 There is a generic template as well. Curtis' group would look at this and possibly create templates based on how people are using the generic templates.
 
 Suggestion of template could be a good use of Recommender.
@@ -39,7 +43,8 @@ Re: computer generated incidents (ECC events) are in Onyx, and some are entered 
 One interesting metric is "transfers" that identifies when a ticket bounces.
 
 - how many templates: 65, will probably be more
- - no hierarchy now. maybe in the future.
+ - no hierarchy now. maybe in the future. 
+ December 22nd, 2017
 
 For the most part, inputs to model would be an email. 
 - Email listener:
